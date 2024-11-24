@@ -139,3 +139,40 @@
   }
 
   
+  .navigation-container {
+    margin-top: 1rem;
+  }
+  
+  .navigate-button {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    background-color: #4caf50; /* Green button */
+    border: none;
+    border-radius: 4px;
+    color: white;
+  }
+  
+  .navigate-button:hover {
+    background-color: #45a049; /* Darker green on hover */
+  }
+
+  /* Media Query for Small Screens */
+@media (max-width: 768px) {
+  .dashboard {
+    padding: 1rem;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  .chart-container {
+    padding: 0.5rem;
+  }
+
+  .raw-data li {
+    font-size: 0.8rem; /* Adjust font size for smaller screens */
+    padding: 0.5rem;
+  }
+}

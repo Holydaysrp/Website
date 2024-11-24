@@ -58,8 +58,8 @@ function Dashboard() {
     useEffect(() => {
         // Connect to HiveMQ broker
         const mqttClient = mqtt.connect('wss://ce06b4f8ae4542a08357c542c4882795.s1.eu.hivemq.cloud:8884/mqtt', {
-            username: 'CustomerAdmin',
-            password: 'CustomerAdmin1',
+            username: 'CustomerClient',
+            password: 'CustomerClient1',
             rejectUnauthorized: true,
         });
 
@@ -151,6 +151,7 @@ function Dashboard() {
 
     const chartOptions = {
         responsive: true,
+        maintainAspectRatio: false, 
         plugins: {
             legend: { position: 'top' },
             title: { display: true, text: `${selectedMetric} Over Time` },
@@ -172,6 +173,17 @@ function Dashboard() {
                     Logout
                 </button>
             </div>
+
+            {/* Historical Data Button */}
+            <div className="navigation-container">
+                <button
+                    className="navigate-button"
+                    onClick={() => navigate('/HistoricalData')}
+                >
+                    Go to Historical Data
+                </button>
+            </div>
+
 
             {/* Metric Selector */}
             <div className="metric-selector">

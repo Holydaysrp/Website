@@ -1,0 +1,98 @@
+label {
+    margin-right: 1rem;
+  }
+  
+  input {
+    margin: 0 1rem;
+    padding: 0.5rem;
+    font-size: 1rem;
+  }
+  
+  button {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  
+  table {
+    width: 80%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+  }
+  
+  th,
+  td {
+    border: 1px solid #ddd;
+    padding: 0.5rem;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #f4f4f4;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .loading-bar {
+    margin: 1rem auto;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    color: white;
+    background-color: #4caf50;
+    border-radius: 4px;
+    display: inline-block;
+    text-align: center;
+  }
+  
+  .chart-container {
+    margin-top: 2rem;
+    max-width: 90%; /* Expand to occupy more width */
+    height: 500px; /* Set a fixed height */
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+  
+  @media (min-width: 1024px) {
+    .chart-container {
+      height: 600px;
+    }
+  }
+  
+  @media (max-width: 1023px) {
+    .chart-container {
+      height: 400px;
+    }
+  }
+
+  .navigation-container {
+    margin-top: 2rem;
+  }
+  
+  .navigate-button {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    background-color: #61dafb; /* Blue button */
+    border: none;
+    border-radius: 4px;
+    color: white;
+  }
+  
+  .navigate-button:hover {
+    background-color: #21a1f1; /* Darker blue on hover */
+  }
+  

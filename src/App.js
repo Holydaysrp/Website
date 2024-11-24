@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
 import './App.css';
 import Dashboard from './Dashboard';
+import HistoricalData from './HistoricalData';
 
 function LoginPage() {
   const [email, setEmail] = useState('');
@@ -120,6 +121,7 @@ function LoginPage() {
   );
   
   
+  
 }
 
 function App() {
@@ -128,6 +130,7 @@ function App() {
       <Routes>
         <Route path="/" element={<LoginPage />} />
         <Route path="/Dashboard" element={<Dashboard />} />
+        <Route path="/HistoricalData" element={<HistoricalData />} />
       </Routes>
     </Router>
   );
