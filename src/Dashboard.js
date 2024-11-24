@@ -21,7 +21,6 @@ function Dashboard() {
     const [parsedData, setParsedData] = useState({});
     const [selectedMetric, setSelectedMetric] = useState('temperature');
     const [status, setStatus] = useState('Disconnected');
-    const [command, setCommand] = useState('');
     const [client, setClient] = useState(null);
 
     const navigate = useNavigate(); // For logout navigation
