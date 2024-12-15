@@ -1,3 +1,5 @@
+// App.js
+
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
 import './App.css';
@@ -10,7 +12,7 @@ function LoginPage() {
   const [action, setAction] = useState('login');
   const navigate = useNavigate();
 
-  // Function to handle form submission
+  // Handle form submission
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -18,6 +20,8 @@ function LoginPage() {
       try {
         const response = await registerUser(email);
         alert(`Registration successful! Your password: ${response.password}`);
+        // Optionally tell them to check email for confirmation link
+        // alert('Please check your inbox for a confirmation link!');
       } catch (error) {
         alert('Registration failed. Please try again.');
         console.error(error);
@@ -27,7 +31,7 @@ function LoginPage() {
         const response = await loginUser(email, password);
         if (response.message === 'Login successful') {
           alert('Login successful!');
-          navigate('/Dashboard'); // Navigate to Dashboard on successful login
+          navigate('/Dashboard'); // Go to Dashboard
         } else {
           alert('Invalid email or password.');
         }
@@ -38,7 +42,7 @@ function LoginPage() {
     }
   };
 
-  // Function to register a user
+  // Register user via Worker endpoint
   async function registerUser(email) {
     const response = await fetch(
       'https://viaches-user-auth.viaslavdem.workers.dev/register',
@@ -51,13 +55,14 @@ function LoginPage() {
 
     const data = await response.json();
     if (response.ok) {
+      // data should include { message: "User registered", password: "<generated>" }
       return data;
     } else {
       throw new Error(data.message || 'Registration failed');
     }
   }
 
-  // Function to login a user
+  // Login user via Worker endpoint
   async function loginUser(email, password) {
     const response = await fetch(
       'https://viaches-user-auth.viaslavdem.workers.dev/login',
@@ -70,7 +75,7 @@ function LoginPage() {
 
     const data = await response.json();
     if (response.ok) {
-      return data;
+      return data; // { message: "Login successful" }
     } else {
       throw new Error(data.message || 'Login failed');
     }
@@ -85,7 +90,7 @@ function LoginPage() {
             <button onClick={() => setAction('login')}>Login</button>
             <button onClick={() => setAction('register')}>Register</button>
           </div>
-  
+
           <form onSubmit={handleSubmit} className="login-form">
             <div>
               <label htmlFor="email">Email:</label>
@@ -98,7 +103,7 @@ function LoginPage() {
                 required
               />
             </div>
-  
+
             {action === 'login' && (
               <div>
                 <label htmlFor="password">Password:</label>
@@ -112,16 +117,15 @@ function LoginPage() {
                 />
               </div>
             )}
-  
-            <button type="submit">{action === 'login' ? 'Login' : 'Register'}</button>
+
+            <button type="submit">
+              {action === 'login' ? 'Login' : 'Register'}
+            </button>
           </form>
         </div>
       </header>
     </div>
   );
-  
-  
-  
 }
 
 function App() {
