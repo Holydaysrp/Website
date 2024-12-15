@@ -35,7 +35,10 @@ function LoginPage() {
     try {
       const response = await registerUser(email);
       alert(`Registration successful! Your password: ${response.password}`);
-      alert('Please check your inbox for a confirmation email to activate your account.');
+      alert(
+        'A confirmation email has been sent to your inbox. Please check your email and confirm your account to log in. ' +
+        'If you do not see the email, please check your spam folder.'
+      );
     } catch (error) {
       throw new Error('Registration failed. Please try again.');
     }
