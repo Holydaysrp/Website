@@ -31,7 +31,7 @@ function corsHeaders() {
           }));
   
           const token = generateToken();
-          const confirmLink = `https://viaches-user-auth.viaslavdem.workers.dev/confirm?token=${token}`;
+          const confirmLink = `workers.dev/confirm?token=${token}`;
           await env.USER_AUTH.put(`token:${token}`, JSON.stringify({ email, expires: Date.now() + 86400000 }));
   
           // Send confirmation email using Resend API
