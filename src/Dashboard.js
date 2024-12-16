@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import mqtt from 'mqtt';
 import { Line } from 'react-chartjs-2';
-import { useNavigate } from 'react-router-dom'; // For navigation
 import './Dashboard.css';
 import {
     Chart as ChartJS,
@@ -14,6 +13,8 @@ import {
     Legend,
 } from 'chart.js';
 
+
+
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
 function Dashboard() {
@@ -22,8 +23,6 @@ function Dashboard() {
     const [selectedMetric, setSelectedMetric] = useState('temperature');
     const [status, setStatus] = useState('Disconnected');
     const [client, setClient] = useState(null);
-
-    const navigate = useNavigate(); // For logout navigation
 
     const availableCommands = [
         { label: 'Set Temperature Setpoint', value: 'SETPOINT' },
@@ -122,17 +121,6 @@ function Dashboard() {
     }, []);
 
 
-    // Handle logout
-    const logout = () => {
-        if (client) {
-            client.end(); // Disconnect the client
-        }
-        setMessages([]); // Clear messages
-        setParsedData({}); // Clear parsed data
-        setStatus('Disconnected'); // Update status
-        navigate('/'); // Redirect to login page
-    };
-
     // Chart data and options
     const chartData = {
         labels: Object.keys(parsedData).map((timestamp) =>
@@ -167,22 +155,7 @@ function Dashboard() {
             <h1>Dashboard</h1>
             <p className={`status ${status.toLowerCase()}`}>Status: {status}</p>
 
-            {/* Logout Button */}
-            <div className="logout-container">
-                <button className="logout-button" onClick={logout}>
-                    Logout
-                </button>
-            </div>
 
-            {/* Historical Data Button */}
-            <div className="navigation-container">
-                <button
-                    className="navigate-button"
-                    onClick={() => navigate('/HistoricalData')}
-                >
-                    Go to Historical Data
-                </button>
-            </div>
 
 
             {/* Metric Selector */}
