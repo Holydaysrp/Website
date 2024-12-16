@@ -135,8 +135,18 @@ function SliderPage() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          View Repository
+          View Website Repository to access Raspberry Pi, Arduino and Cloudflare Worker Code.
         </a>
+
+        <a
+          href="https://github.com/Holydaysrp/IIA3220.git"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          View Repository for Labview Application
+        </a>
+        
+        
       </p>
       </section>
     </div>
